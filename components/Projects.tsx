@@ -8,8 +8,8 @@ const Projects: React.FC = () => {
     <section id={SectionId.PROJECTS} className="py-32 bg-dark-bg relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-end justify-between mb-20 border-b border-gray-800 pb-8">
-           <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tighter">WORK</h2>
-           <span className="hidden md:block font-mono text-gray-500 mb-4">SELECTED CASES (0{PROJECTS.length})</span>
+          <h2 className="text-4xl md:text-8xl font-bold text-white tracking-tighter">WORK</h2>
+          <span className="hidden md:block font-mono text-gray-500 mb-4">SELECTED CASES (0{PROJECTS.length})</span>
         </div>
 
         <div className="grid grid-cols-1 gap-16">
@@ -41,32 +41,31 @@ const ProjectCard: React.FC<{ project: any; index: number }> = ({ project, index
   };
 
   return (
-    <div 
+    <div
       className="perspective-1000"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div 
+      <div
         ref={cardRef}
         className="group relative bg-card-bg rounded-3xl overflow-hidden border border-white/5 transition-all duration-200 ease-out shadow-2xl"
         style={{ transform, transformStyle: 'preserve-3d' }}
       >
         <div className="grid md:grid-cols-2 gap-0">
           {/* Visual Side */}
-          <div className={`h-80 md:h-auto min-h-[400px] relative overflow-hidden bg-gradient-to-br ${
-              index % 2 === 0 ? 'from-purple-900/40 to-black' : 'from-cyan-900/40 to-black'
-          }`}>
-             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-             
-             {/* Floating Elements */}
-             <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-700">
-                <span className="text-[12rem] font-bold text-white/5 group-hover:text-white/10 select-none transform translate-z-10 transition-transform duration-500 group-hover:scale-110">
-                  0{index + 1}
-                </span>
-             </div>
-             
-             {/* Overlay Gradient on Hover */}
-             <div className="absolute inset-0 bg-neon-blue/0 group-hover:bg-neon-blue/5 transition-colors duration-500"></div>
+          <div className={`h-80 md:h-auto min-h-[400px] relative overflow-hidden bg-gradient-to-br ${index % 2 === 0 ? 'from-purple-900/40 to-black' : 'from-cyan-900/40 to-black'
+            }`}>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+
+            {/* Floating Elements */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-700">
+              <span className="text-[12rem] font-bold text-white/5 group-hover:text-white/10 select-none transform translate-z-10 transition-transform duration-500 group-hover:scale-110">
+                0{index + 1}
+              </span>
+            </div>
+
+            {/* Overlay Gradient on Hover */}
+            <div className="absolute inset-0 bg-neon-blue/0 group-hover:bg-neon-blue/5 transition-colors duration-500"></div>
           </div>
 
           {/* Content Side */}
