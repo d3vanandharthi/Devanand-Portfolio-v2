@@ -35,16 +35,16 @@ const Skills: React.FC = () => {
 
     // Links: Create artificial links for visual structure (optional, connecting similar groups)
     // For now, let's keep them as floating nodes but add a "constellation" effect background
-    
+
     const node = svg.append("g")
       .selectAll("g")
       .data(SKILL_DATA)
       .join("g")
       .attr("cursor", "none") // Custom cursor handles it
-      .call(d3.drag<SVGGElement, any>()
+      .call((d3.drag<SVGGElement, any>()
         .on("start", dragstarted)
         .on("drag", dragged)
-        .on("end", dragended));
+        .on("end", dragended)) as any);
 
     // Glow Effect
     const defs = svg.append("defs");
@@ -76,32 +76,32 @@ const Skills: React.FC = () => {
       .style("text-shadow", "0 0 5px rgba(0,0,0,0.8)");
 
     // Hover interactions
-    node.on("mouseover", function(event, d) {
+    node.on("mouseover", function (event, d) {
       d3.select(this).select("circle")
         .transition().duration(200)
         .attr("fill", d.color)
         .attr("stroke", "#fff")
         .attr("r", d.radius * 1.1);
-      
+
       d3.select(this).select("text")
         .style("font-weight", "bold")
         .style("font-size", "14px");
 
       setActiveSkill(d.id);
     })
-    .on("mouseout", function(event, d) {
-      d3.select(this).select("circle")
-        .transition().duration(500)
-        .attr("fill", "#0a0a0a")
-        .attr("stroke", d.color)
-        .attr("r", d.radius);
+      .on("mouseout", function (event, d) {
+        d3.select(this).select("circle")
+          .transition().duration(500)
+          .attr("fill", "#0a0a0a")
+          .attr("stroke", d.color)
+          .attr("r", d.radius);
 
-      d3.select(this).select("text")
-        .style("font-weight", "normal")
-        .style("font-size", "12px");
-      
-      setActiveSkill(null);
-    });
+        d3.select(this).select("text")
+          .style("font-weight", "normal")
+          .style("font-size", "12px");
+
+        setActiveSkill(null);
+      });
 
     simulation.on("tick", () => {
       node.attr("transform", d => `translate(${(d as any).x},${(d as any).y})`);
@@ -132,7 +132,7 @@ const Skills: React.FC = () => {
     const timer = setTimeout(() => {
       initSimulation();
     }, 500);
-    
+
     window.addEventListener('resize', initSimulation);
     return () => {
       clearTimeout(timer);
@@ -142,7 +142,7 @@ const Skills: React.FC = () => {
 
   return (
     <section id={SectionId.SKILLS} className="py-24 relative bg-dark-bg">
-       <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 pb-6 border-b border-gray-800">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">Technical Matrix</h2>
@@ -150,7 +150,7 @@ const Skills: React.FC = () => {
               A comprehensive view of my technological arsenal. Interactive force-directed graph.
             </p>
           </div>
-          <button 
+          <button
             onClick={initSimulation}
             className="mt-4 md:mt-0 p-3 text-neon-blue border border-neon-blue/20 hover:bg-neon-blue/10 transition-all rounded-full"
             title="Reset Simulation"
@@ -162,42 +162,42 @@ const Skills: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-8 relative h-[600px] bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl" ref={containerRef}>
             <div className="absolute top-6 left-6 flex items-center gap-2 text-gray-500 font-mono text-xs z-10">
-               <Cpu size={14} />
-               <span>SIMULATION_ACTIVE</span>
+              <Cpu size={14} />
+              <span>SIMULATION_ACTIVE</span>
             </div>
             <svg ref={svgRef} className="w-full h-full"></svg>
           </div>
 
           <div className="lg:col-span-4 space-y-6">
-             <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-neon-purple/50 transition-colors group">
-               <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-neon-purple transition-colors">Core Stack</h3>
-               <div className="flex flex-wrap gap-2">
-                 {['.NET Core', 'C#', 'ASP.NET MVC', 'Razor Pages'].map(s => (
-                   <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
-                 ))}
-               </div>
-             </div>
+            <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-neon-purple/50 transition-colors group">
+              <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-neon-purple transition-colors">Core Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {['.NET Core', 'C#', 'ASP.NET MVC', 'Razor Pages'].map(s => (
+                  <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
+                ))}
+              </div>
+            </div>
 
-             <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-neon-blue/50 transition-colors group">
-               <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-neon-blue transition-colors">Data & Cloud</h3>
-               <div className="flex flex-wrap gap-2">
-                 {['Snowflake', 'SQL Server', 'MongoDB', 'Azure', 'Docker'].map(s => (
-                   <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
-                 ))}
-               </div>
-             </div>
+            <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-neon-blue/50 transition-colors group">
+              <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-neon-blue transition-colors">Data & Cloud</h3>
+              <div className="flex flex-wrap gap-2">
+                {['Snowflake', 'SQL Server', 'MongoDB', 'Azure', 'Docker'].map(s => (
+                  <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
+                ))}
+              </div>
+            </div>
 
-             <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-amber-500/50 transition-colors group">
-               <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-amber-500 transition-colors">Architecture</h3>
-               <div className="flex flex-wrap gap-2">
-                 {['Clean Architecture', 'Microservices', 'GenAI', 'SOLID'].map(s => (
-                   <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
-                 ))}
-               </div>
-             </div>
+            <div className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-amber-500/50 transition-colors group">
+              <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-amber-500 transition-colors">Architecture</h3>
+              <div className="flex flex-wrap gap-2">
+                {['Clean Architecture', 'Microservices', 'GenAI', 'SOLID'].map(s => (
+                  <span key={s} className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full font-mono border border-white/10">{s}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-       </div>
+      </div>
     </section>
   );
 };

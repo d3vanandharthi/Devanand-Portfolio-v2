@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { GoogleGenAI } from "@google/genai";
 import { RESUME_CONTENT } from "../constants";
 
@@ -5,10 +6,11 @@ let ai: GoogleGenAI | null = null;
 
 const getAIClient = (): GoogleGenAI => {
   if (!ai) {
-    if (!process.env.API_KEY) {
-      console.warn("Gemini API Key is missing!");
+    const apiKey = import.meta.env.VITE_API_KEY;
+    if (!apiKey) {
+      console.warn("Gemini API Key is missing! Ensure VITE_API_KEY is set.");
     }
-    ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    ai = new GoogleGenAI({ apiKey: apiKey || "" });
   }
   return ai;
 };
