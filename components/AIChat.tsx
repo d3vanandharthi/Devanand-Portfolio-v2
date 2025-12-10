@@ -38,7 +38,7 @@ const AIChat: React.FC = () => {
     try {
       // Add placeholder for model response
       setMessages(prev => [...prev, { role: 'model', text: '' }]);
-      
+
       const stream = streamChatResponse(messages, userMsg);
       let fullResponse = '';
 
@@ -53,9 +53,10 @@ const AIChat: React.FC = () => {
           return newHistory;
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Chat error:', error);
-      setMessages(prev => [...prev, { role: 'model', text: 'Connection interrupted. Please try again.', isError: true }]);
+      const errorMessage = error?.message || 'Connection interrupted. Please try again.';
+      setMessages(prev => [...prev, { role: 'model', text: `Error: ${errorMessage}`, isError: true }]);
     } finally {
       setIsLoading(false);
     }
@@ -78,7 +79,7 @@ const AIChat: React.FC = () => {
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-[90vw] md:w-[400px] h-[500px] bg-black border border-gray-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden font-sans">
-          
+
           {/* Header */}
           <div className="bg-gray-900/80 backdrop-blur p-4 border-b border-gray-800 flex justify-between items-center">
             <div className="flex items-center gap-3">
@@ -101,12 +102,11 @@ const AIChat: React.FC = () => {
           <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide bg-black/50">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div 
-                  className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
-                    msg.role === 'user' 
-                      ? 'bg-neon-blue text-black rounded-tr-none' 
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                      ? 'bg-neon-blue text-black rounded-tr-none'
                       : 'bg-gray-800 text-gray-200 rounded-tl-none border border-gray-700'
-                  } ${msg.isError ? 'bg-red-900/50 border-red-500' : ''}`}
+                    } ${msg.isError ? 'bg-red-900/50 border-red-500' : ''}`}
                 >
                   {msg.text}
                 </div>
@@ -115,8 +115,8 @@ const AIChat: React.FC = () => {
             {isLoading && messages[messages.length - 1].text === '' && (
               <div className="flex justify-start">
                 <div className="bg-gray-800 text-gray-200 p-3 rounded-2xl rounded-tl-none border border-gray-700 flex items-center gap-2">
-                   <Loader2 size={16} className="animate-spin text-neon-blue" />
-                   <span className="text-xs text-gray-400">Thinking...</span>
+                  <Loader2 size={16} className="animate-spin text-neon-blue" />
+                  <span className="text-xs text-gray-400">Thinking...</span>
                 </div>
               </div>
             )}
@@ -135,7 +135,7 @@ const AIChat: React.FC = () => {
                 placeholder="Ask about my projects..."
                 className="w-full bg-black border border-gray-700 text-white rounded-full py-3 px-4 pr-12 focus:outline-none focus:border-neon-blue transition-colors text-sm"
               />
-              <button 
+              <button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-gray-800 text-neon-blue rounded-full hover:bg-gray-700 disabled:opacity-50 transition-colors"
@@ -144,7 +144,7 @@ const AIChat: React.FC = () => {
               </button>
             </div>
             <div className="text-center mt-2">
-               <span className="text-[10px] text-gray-600">Powered by Google Gemini 2.5 Flash</span>
+              <span className="text-[10px] text-gray-600">Powered by Google Gemini 2.5 Flash</span>
             </div>
           </div>
         </div>
