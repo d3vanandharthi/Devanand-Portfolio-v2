@@ -1,0 +1,7 @@
+{
+  "name": "Devanand Harthi | .NET Developer & Gen AI Developer Portfolio",
+  "description": "Interactive futuristic portfolio for Devanand Mallesh Harthi, featuring AI chat and data visualization.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
