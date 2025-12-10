@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col items-start select-none opacity-20">
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-gray-700"></div>
-            <span className="font-mono text-gray-700 tracking-widest text-sm uppercase">Full Stack .NET Architect</span>
+            <span className="font-mono text-gray-700 tracking-widest text-sm uppercase">Full Stack .NET Developer | Gen AI Developer</span>
           </div>
           <h1 className="text-5xl md:text-9xl font-bold text-gray-800 tracking-tighter leading-[0.9] mb-8">
             DEVANAND<br />
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-neon-blue shadow-[0_0_10px_#00f3ff]"></div>
             <span className="font-mono text-neon-blue tracking-widest text-sm uppercase drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">
-              Full Stack .NET Architect
+              Full Stack .NET Developer | Gen AI Developer
             </span>
           </div>
           <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-[0.9] mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
           {/* Interactive Nano Tech Subtitle */}
           <div className="w-full max-w-2xl h-32 pointer-events-auto">
             <NanotechText
-              text=".NET ARCHITECT // AI ENGINEER"
+              text=".NET DEVELOPER // GEN AI DEVELOPER"
               fontSize={24}
               color="#a0a0a0"
               textAlign="left"

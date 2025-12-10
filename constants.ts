@@ -17,7 +17,12 @@ Patterns: Clean Architecture, Microservices, Factory Pattern, SOLID, DDD
 Financial Tech: Moody's CreditLens, Ncino CRM, Risk Rating Models
 
 EXPERIENCE
-Software Engineer | SLK Software Services (Dec 2024 - Present)
+SLK | Senior Software Engineer (Dec 2024 - Present)
+- Delivered robust .NET Core APIs powering high-traffic FinTech operations
+- Rebuilt complex business queries using AI, reducing execution time from 10 minutes to 7 seconds
+- Integrated GitHub Copilot, boosting team code productivity and quality
+- Agile sprints, mentoring 3+ junior devs in .NET, AI, and best practices
+- Improved system reliability by implementing advanced debugging and testing tools
 - Architected full-stack .NET Core solutions for enterprise banking workflows (10,000+ credit assessments annually).
 - Designed Risk Rating Models (PD & LGD) using Factory Pattern, reducing calculation time by 40%.
 - Engineered automated synchronization between Ncino and Moody's CreditLens.
@@ -55,7 +60,7 @@ export const EXPERIENCES: Experience[] = [
     tech: ['.NET Core', 'C#', 'Snowflake', "Moody's CreditLens", 'Ncino', 'GitHub Actions']
   },
   {
-    id: 'parallel',
+    id: 'parallel-se',
     role: 'Software Engineer',
     company: 'Parallel Process Technologies',
     location: 'Panjim, Goa',
@@ -79,7 +84,7 @@ export const EXPERIENCES: Experience[] = [
       'Achieved 95+ Google Lighthouse scores.',
       'Reduced page load times by 40%.'
     ],
-    tech: ['HTML5', 'CSS3', 'JavaScript']
+    tech: ['MD Bootstrap', 'DevExtreme', 'Kendo UI', 'Responsive Design']
   }
 ];
 
