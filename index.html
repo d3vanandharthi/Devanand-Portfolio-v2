@@ -57,6 +57,7 @@
       }
 
       /* Film Grain Overlay */
+
       .noise-overlay {
         position: fixed;
         top: 0;
@@ -70,16 +71,20 @@
       }
 
       /* Custom Scrollbar */
+
       ::-webkit-scrollbar {
         width: 6px;
       }
+
       ::-webkit-scrollbar-track {
         background: #050505;
       }
+
       ::-webkit-scrollbar-thumb {
         background: #333;
         border-radius: 3px;
       }
+
       ::-webkit-scrollbar-thumb:hover {
         background: #00f3ff;
       }
@@ -87,21 +92,25 @@
       .scrollbar-hide::-webkit-scrollbar {
           display: none;
       }
+
       .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
       }
 
       /* Text selection */
+
       ::selection {
         background: #00f3ff;
         color: #000;
       }
-      
+
       .perspective-1000 {
         perspective: 1000px;
       }
     </style>
+
+<link rel="stylesheet" href="/index.css">
 <script type="importmap">
 {
   "imports": {
@@ -119,12 +128,10 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin src="/Devanand-Portfolio-v2/assets/index-Cd_-tM7h.js"></script>
 </head>
   <body>
     <div class="noise-overlay"></div>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
-  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
