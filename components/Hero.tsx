@@ -52,51 +52,54 @@ const Hero: React.FC = () => {
         {/* Layer 2: Spotlight Reveal (Masked) */}
         <div
           ref={overlayRef}
-          transition: 'clip-path 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)', // Smooth tail effect
-        willChange: 'clip-path' // Hardware acceleration hint
+          style={{
+            // Initial state off-screen or center, updated via JS ref
+            clipPath: `circle(0px at 50% 50%)`,
+            transition: 'clip-path 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)', // Smooth tail effect
+            willChange: 'clip-path' // Hardware acceleration hint
           }}
-        className="absolute inset-0 z-20 flex flex-col items-start max-md:!clip-path-none"
+          className="absolute inset-0 z-20 flex flex-col items-start max-md:!clip-path-none"
         >
-        <div className="flex items-center gap-4 mb-6">
-          <div className="h-[1px] w-12 bg-neon-blue shadow-[0_0_10px_#00f3ff]"></div>
-          <span className="font-mono text-neon-blue tracking-widest text-sm uppercase drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">
-            Full Stack .NET Developer | Gen AI Developer
-          </span>
-        </div>
-        <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-[0.9] mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          DEVANAND<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">HARTHI</span>
-        </h1>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-[1px] w-12 bg-neon-blue shadow-[0_0_10px_#00f3ff]"></div>
+            <span className="font-mono text-neon-blue tracking-widest text-sm uppercase drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">
+              Full Stack .NET Developer | Gen AI Developer
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-[0.9] mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            DEVANAND<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">HARTHI</span>
+          </h1>
 
-        {/* Interactive Nano Tech Subtitle */}
-        <div className="w-full max-w-2xl h-32 pointer-events-auto">
-          <NanotechText
-            text=".NET DEVELOPER // GEN AI DEVELOPER"
-            fontSize={24}
-            color="#a0a0a0"
-            textAlign="left"
-          />
-        </div>
+          {/* Interactive Nano Tech Subtitle */}
+          <div className="w-full max-w-2xl h-32 pointer-events-auto">
+            <NanotechText
+              text=".NET DEVELOPER // GEN AI DEVELOPER"
+              fontSize={24}
+              color="#a0a0a0"
+              textAlign="left"
+            />
+          </div>
 
-        <div className="mt-8 pointer-events-auto">
-          <button
-            onClick={() => document.getElementById(SectionId.PROJECTS)?.scrollIntoView({ behavior: 'smooth' })}
-            className="group flex items-center gap-4 text-white font-mono hover:text-neon-blue transition-colors pl-1"
-          >
-            <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center group-hover:border-neon-blue group-hover:bg-neon-blue/20 transition-all backdrop-blur-md">
-              <ArrowRight size={24} className="group-hover:-rotate-45 transition-transform" />
-            </div>
-            <span className="text-sm tracking-[0.2em]">EXPLORE WORK</span>
-          </button>
+          <div className="mt-8 pointer-events-auto">
+            <button
+              onClick={() => document.getElementById(SectionId.PROJECTS)?.scrollIntoView({ behavior: 'smooth' })}
+              className="group flex items-center gap-4 text-white font-mono hover:text-neon-blue transition-colors pl-1"
+            >
+              <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center group-hover:border-neon-blue group-hover:bg-neon-blue/20 transition-all backdrop-blur-md">
+                <ArrowRight size={24} className="group-hover:-rotate-45 transition-transform" />
+              </div>
+              <span className="text-sm tracking-[0.2em]">EXPLORE WORK</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-      {/* Scroll Indicator */ }
-  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce z-20">
-    <span className="text-[10px] font-mono tracking-widest uppercase text-white">Scroll</span>
-    <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
-  </div>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce z-20">
+        <span className="text-[10px] font-mono tracking-widest uppercase text-white">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+      </div>
     </section >
   );
 };
