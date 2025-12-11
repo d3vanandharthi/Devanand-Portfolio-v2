@@ -40,7 +40,7 @@ const About: React.FC = () => {
         {/* === LAYER 2: THE HOLOGRAPHIC REVEAL (Bright/Neon) === */}
         <div
           ref={revealRef}
-          className="absolute inset-0 z-20 top-0 left-6 right-6"
+          className="absolute inset-0 z-20 top-0 left-6 right-6 max-md:![mask-image:none] max-md:![--webkit-mask-image:none]"
           style={{
             // The mask is a composition of:
             // 1. The Laser Beam (animation defined in tailwind/css)
