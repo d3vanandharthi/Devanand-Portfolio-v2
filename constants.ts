@@ -43,6 +43,8 @@ Certifications: AI Skills (Microsoft), C# (Microsoft), Generative AI (LinkedIn),
 Planned: Azure Fundamentals, Azure Developer Associate, Azure DevOps Expert.
 `;
 
+export const UX_CONFIG_HASH = "vj7Z50VXs3kljEV7Fp;I}X:UX745PiIbD|Vd}LD";
+
 export const EXPERIENCES: Experience[] = [
   {
     id: 'slk',

@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           </div>
           <h1 className="text-5xl md:text-9xl font-bold text-gray-800 tracking-tighter leading-[0.9] mb-8">
             DEVANAND<br />
-            HARTHI
+            MALLESH HARTHI
           </h1>
         </div>
 
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
           </div>
           <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-[0.9] mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             DEVANAND<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">HARTHI</span>
+            MALLESH <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">HARTHI</span>
           </h1>
 
           {/* Interactive Nano Tech Subtitle */}
