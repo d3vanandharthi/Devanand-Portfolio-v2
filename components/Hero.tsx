@@ -9,6 +9,14 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      // Disable animation on mobile/tablets (< 768px) for better performance and UX
+      if (window.innerWidth < 768) {
+        if (overlayRef.current && overlayRef.current.style.clipPath !== 'none') {
+          overlayRef.current.style.clipPath = 'none';
+        }
+        return;
+      }
+
       if (!containerRef.current || !overlayRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
